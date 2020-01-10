@@ -14,6 +14,7 @@ class Aplicacion():
         
         # Establece que no se pueda cambiar el tamaño de la
         # ventana
+        #Cambiossss
         
         self.raiz.resizable(0,0)
         self.raiz.title("Acceso")
