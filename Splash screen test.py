@@ -6,6 +6,8 @@ v0=Tk()
 #label1 = Label(v0, image=imagen1)
 #label1.grid(row=1,column=1)
 
+#Cambios qe hice
+
 def imprimir(texto):
      print (texto)
 
