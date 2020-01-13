@@ -74,6 +74,7 @@ if __name__ == '__main__':
 
     #Imagen del Splash
     img = ImageTk.PhotoImage(Image.open("chavito.jpg"))
+    #img = tk.PhotoImage(tk.PhotoImage.open("chavito.jpg"))
     panel = tk.Label(SplashScreen, image = img)
     panel.pack(side = "top", fill = "both", expand = "yes")
 

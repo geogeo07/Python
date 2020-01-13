@@ -1,15 +1,22 @@
 from tkinter import *
-from PIL import ImageTk, Image
+#from PIL import ImageTk, Image
 
 v0=Tk()
-imagen1=ImageTk.PhotoImage(Image.open("chavito.jpg"))
-label1 = Label(v0, image=imagen1)
-label1.grid(row=1,column=1)
+#imagen1=ImageTk.PhotoImage(Image.open("chavito.jpg"))
+#label1 = Label(v0, image=imagen1)
+#label1.grid(row=1,column=1)
 
-def imprimir(texto): print (texto)
-def mostrar(ventana): return ventana.deiconify # Muestra una ventana
-def ocultar(ventana): return ventana.withdraw() # Oculta una ventana
-def ejecutar(f): v0.after(100, f)
+def imprimir(texto):
+     print (texto)
+
+def mostrar(ventana):
+     return ventana.deiconify # Muestra una ventana
+
+def ocultar(ventana):
+     return ventana.withdraw() # Oculta una ventana
+
+def ejecutar(f): 
+    v0.after(100, f)
 
 menu1 = Menu(v0)
 v0.config(menu=menu1)
@@ -39,6 +46,8 @@ ocultar(v0)
 def cerrar_splashscreen():
     ejecutar(ocultar(v1))
     ejecutar(mostrar(v0))
+
+    
 v1.after(4000,cerrar_splashscreen)
 Label(v1,text="BIENVENIDO A NUESTRA APLICACIÓN",bg="black",fg="white",font=(15)).pack()
 Label(v1,text="BIENVENIDO A NUESTRA APLICACIÓN",bg="black",fg="white",font=(15)).pack()
