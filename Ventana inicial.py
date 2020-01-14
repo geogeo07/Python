@@ -18,7 +18,7 @@ def abrirVentana2():
     boton2.pack(side=tk.TOP)
 
 def cerrarVentana():
-    ventana,destroy()
+    ventana.destroy()
 
 ventana=tk.Tk()
 ventana.title("Ventana 1")

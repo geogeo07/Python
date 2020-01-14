@@ -1,12 +1,14 @@
 from tkinter import *
+from tkinter import ttk
+
 #from PIL import ImageTk, Image
 
-v0=Tk()
-#imagen1=ImageTk.PhotoImage(Image.open("chavito.jpg"))
-#label1 = Label(v0, image=imagen1)
+mainMenu=Tk()
+#imagen1 = ImageTk.PhotoImage(Image.open("chavito.jpg"))
+#label1 = Label(mainMenu, image=imagen1)
 #label1.grid(row=1,column=1)
 
-#Cambios qe hice
+
 
 def imprimir(texto):
      print (texto)
@@ -18,10 +20,25 @@ def ocultar(ventana):
      return ventana.withdraw() # Oculta una ventana
 
 def ejecutar(f): 
-    v0.after(100, f)
+    mainMenu.after(100, f)
 
-menu1 = Menu(v0)
-v0.config(menu=menu1)
+
+def cerrar_splashscreen():
+    ejecutar(ocultar(splashScreen))
+    ejecutar(mostrar(mainMenu))
+
+
+def progress(currentValue): #Llama
+    progressbar["value"]=currentValue
+
+
+
+
+
+
+#Creacion del menu
+menu1 = Menu(mainMenu)
+mainMenu.config(menu=menu1)
 menu1_1 = Menu(menu1, tearoff=0)
 menu1.add_cascade(label="AMARILLO", menu=menu1_1)
 menu1_1_1 = Menu(menu1_1, tearoff=0)
@@ -36,25 +53,68 @@ menu1_2.add_separator()
 menu1_2_1 = Menu(menu1_2, tearoff=0)
 menu1_2.add_cascade(label="FRUTAS", menu=menu1_2_1)
 menu1_2_1.add_command(label="FRESA",command=lambda: imprimir("FRESA"))
-menu1_2_1.add_command(label="MANZANA",command=lambda: imprimir("MANZANA"))
+menu1_2_1.add_command(label="MANZANA",command=lambda: imprimir("PIÑA") )
 
-v1=Toplevel(v0)
-v1.geometry("400x200")
-v1.config(bg="black")
-v1.protocol("WM_DELETE_WINDOW", "onexit")
-v1.resizable(0,0)
+#Crea una ventana hija del mainMenu
+splashScreen=Toplevel(mainMenu)
+splashScreen.geometry("400x200")
+splashScreen.config(bg="black")
+splashScreen.protocol("WM_DELETE_WINDOW", "onexit")
+splashScreen.resizable(0,0)
 
-ocultar(v0)
-def cerrar_splashscreen():
-    ejecutar(ocultar(v1))
-    ejecutar(mostrar(v0))
+#Ocultamos mainMenu
+ocultar(mainMenu)
 
-    
-v1.after(4000,cerrar_splashscreen)
-Label(v1,text="BIENVENIDO A NUESTRA APLICACIÓN",bg="black",fg="white",font=(15)).pack()
-Label(v1,text="BIENVENIDO A NUESTRA APLICACIÓN",bg="black",fg="white",font=(15)).pack()
-Label(v1,text="BIENVENIDO A NUESTRA APLICACIÓN",bg="black",fg="white",font=(15)).pack()
-Label(v1,text="BIENVENIDO A NUESTRA APLICACIÓN",bg="black",fg="white",font=(15)).pack()
-Label(v1,text="BIENVENIDO A NUESTRA APLICACIÓN",bg="black",fg="white",font=(15)).pack()
+#iniciamos la aplicacion abriendo el splash y manteniendo oculto el menu despues de 4000 milisegundos.
+splashScreen.after(4000,cerrar_splashscreen)
 
-v0.mainloop()
+#Agregamos una etiqueta al splash.
+Label(splashScreen,text="BIENVENIDO A NUESTRA APLICACIÓN",bg="black",fg="white",font=(15)).pack()
+
+
+
+#ProgressBar started
+maxValue=100
+progressbar=ttk.Progressbar(splashScreen,orient="horizontal",length=300,mode="determinate")
+progressbar.pack(side=BOTTOM)
+currentValue=0
+progressbar["value"]=currentValue
+progressbar["maximum"]=maxValue
+divisions=10
+for i in range(divisions):
+    currentValue=currentValue+20
+    progressbar.after(500, progress(currentValue))
+    # Force an update of the GUI
+    progressbar.update()
+#ProgressBar finished.
+
+
+
+#Creamos la ventana del login
+
+
+
+#ocultar(splashScreen)
+
+
+
+
+
+
+
+mainMenu.mainloop()
+
+
+
+loginWindow=Tk()
+loginWindow.title("Ventana 1")
+loginWindow.geometry('380x380')
+loginWindow.configure(background='dark gray')
+e1=Label(loginWindow, text="Password:" , bg="pink", fg= "white")
+e1.pack(padx=5, pady=5, ipadx=5, ipady=5)
+entrada1=Entry(loginWindow)
+entrada1.pack(fill=X,padx=5,pady=58,ipadx=5, ipady=5)
+ButtonGotoLogin=Button(loginWindow,text="Validar password", fg="blue",command=lambda: imprimir("PIÑA"))
+ButtonGotoLogin.pack(side=TOP)
+
+loginWindow.mainloop()
