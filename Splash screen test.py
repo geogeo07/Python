@@ -106,15 +106,3 @@ mainMenu.mainloop()
 
 
 
-loginWindow=Tk()
-loginWindow.title("Ventana 1")
-loginWindow.geometry('380x380')
-loginWindow.configure(background='dark gray')
-e1=Label(loginWindow, text="Password:" , bg="pink", fg= "white")
-e1.pack(padx=5, pady=5, ipadx=5, ipady=5)
-entrada1=Entry(loginWindow)
-entrada1.pack(fill=X,padx=5,pady=58,ipadx=5, ipady=5)
-ButtonGotoLogin=Button(loginWindow,text="Validar password", fg="blue",command=lambda: imprimir("PIÑA"))
-ButtonGotoLogin.pack(side=TOP)
-
-loginWindow.mainloop()
