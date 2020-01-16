@@ -1,0 +1,6 @@
+Diamentro:
+50
+Espesor:
+40
+Largo:
+10

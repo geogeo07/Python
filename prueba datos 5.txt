@@ -1,0 +1,8 @@
+Nombre:
+prueba datos 5
+Diametro:
+10 
+Espesor:
+10
+Largo:
+10

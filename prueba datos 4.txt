@@ -1,0 +1,8 @@
+Nombre:
+prueba datos 4
+Diamentro:
+50
+Espesor:
+50
+Largo:
+50
