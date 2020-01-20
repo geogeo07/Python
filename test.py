@@ -323,34 +323,58 @@ if hayInternet == False:
 else: 
     menu4_1.add_command(label="Internet")
 
-EtiquetaNombre=Label(mainMenu, text="Nombre:" , bg="light gray", fg= "white")
+
+#Creacion de pestañas
+###############
+pestañasFrame = ttk.Notebook(mainMenu) #Marco de las pestañas
+pestañaPrincipal = Frame(pestañasFrame) #Pestaña principal
+pestañaConexion = Frame(pestañasFrame) #Pestaña de las conexiones
+pestañaManual = Frame(pestañasFrame) #Pestaña de control manual
+pestañaAgregrarUsuario = Frame(pestañasFrame) #Pestaña agregar usuario
+#Agregamos las pestañas al frame principal y le damos el nombre
+pestañasFrame.add(pestañaPrincipal, text="Principal")
+pestañasFrame.add(pestañaManual, text="Manual")
+pestañasFrame.add(pestañaAgregrarUsuario, text="Agregar usuario")
+pestañasFrame.add(pestañaConexion, text="Conexiones")
+pestañasFrame.pack(expand=1, fill='both')
+############
+
+
+
+#Widgets pestaña principal
+EtiquetaNombre=Label(pestañaPrincipal, text="Nombre:" , bg="light gray", fg= "white")
 EtiquetaNombre.pack(padx=5, pady=5, ipadx=5, ipady=5)
-TxtNombre=Entry(mainMenu)
+TxtNombre=Entry(pestañaPrincipal)
 TxtNombre.pack(fill=X,padx=5,pady=5,ipadx=5, ipady=5)
 
-EtiquetaDiametro=Label(mainMenu, text="Diametro:" , bg="light gray", fg= "white")
+EtiquetaDiametro=Label(pestañaPrincipal, text="Diametro:" , bg="light gray", fg= "white")
 EtiquetaDiametro.pack(padx=5, pady=5, ipadx=5, ipady=5)
-TxtDiametro=Entry(mainMenu)
+TxtDiametro=Entry(pestañaPrincipal)
 TxtDiametro.pack(fill=X,padx=5,pady=5,ipadx=5, ipady=5)
 
-EtiquetaEspesor=Label(mainMenu, text="Espesor:" , bg="light gray", fg= "white")
+EtiquetaEspesor=Label(pestañaPrincipal, text="Espesor:" , bg="light gray", fg= "white")
 EtiquetaEspesor.pack(padx=5, pady=5, ipadx=5, ipady=5)
-TxtEspesor=Entry(mainMenu)
+TxtEspesor=Entry(pestañaPrincipal)
 TxtEspesor.pack(fill=X,padx=5,pady=5,ipadx=5, ipady=5)
 
-EtiquetaLargo=Label(mainMenu, text="Largo:" , bg="light gray", fg= "white")
+EtiquetaLargo=Label(pestañaPrincipal, text="Largo:" , bg="light gray", fg= "white")
 EtiquetaLargo.pack(padx=5, pady=5, ipadx=5, ipady=5)
-TxtLargo=Entry(mainMenu)
+TxtLargo=Entry(pestañaPrincipal)
 TxtLargo.pack(fill=X,padx=5,pady=5,ipadx=5, ipady=5)
 
-ButtonIniciar=Button(mainMenu,text="Iniciar", fg="blue", state = 'normal') 
+ButtonIniciar=Button(pestañaPrincipal,text="Iniciar", fg="blue", state = 'normal') 
 ButtonIniciar.pack(side=BOTTOM)
 
-ButtonStop=Button(mainMenu,text="Stop", fg="blue", state = 'normal')
+ButtonStop=Button(pestañaPrincipal,text="Stop", fg="blue", state = 'normal')
 ButtonStop.pack(side=BOTTOM)
 
-ButtonArchivoNuevo=Button(mainMenu,text="Archivo Nuevo +", fg="blue", state = 'normal', command = guardarArchivo)
+ButtonArchivoNuevo=Button(pestañaPrincipal,text="Archivo Nuevo +", fg="blue", state = 'normal', command = guardarArchivo)
 ButtonArchivoNuevo.pack(side=BOTTOM)
+
+ButtonCalibrar=Button(pestañaPrincipal,text="Archivo Nuevo +", fg="blue", state = 'normal', command = guardarArchivo)
+ButtonCalibrar.pack(side=BOTTOM)
+#Fin widgets pestaña principal
+
 
 
 loginWindow.mainloop()
