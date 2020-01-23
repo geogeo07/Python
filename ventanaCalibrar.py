@@ -21,7 +21,7 @@ marcoVideo.place(x=10 , y=10)
 
 
 #Capture video frames
-labelVideo = tk.Label(marcoVideo,  width=587, height=437)
+labelVideo = tk.Label(marcoVideo,  height=438,  width=588)
 labelVideo.place(x=2, y= 2)
 cap = cv2.VideoCapture(0)
 
@@ -114,9 +114,9 @@ def video_loop():
     ok, frame = cap.read()  # read frame from video stream
     if ok:  # frame captured without any errors
         cv2image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)  # convert colors from BGR to RGBA
-        cv2.circle(cv2image,(293,218), 50, (0,0,255), 1)
-        cv2.line(cv2image,(278,308),(320,255),(0,255,0),2) #Horizontal
-        cv2.line(cv2image,(278,308),(255,310),(255,100,255),2) #Linea vertical
+        cv2.circle(cv2image,(294,219), 40, (0,0,255), 2)
+        cv2.line(cv2image,(250,219),(340,219),(0,255,0),1) #Horizontal
+        cv2.line(cv2image,(294,175),(294,270),(255,100,255),1) #Linea vertical
         current_image = Image.fromarray(cv2image)  # convert image for PIL
         imgtk = ImageTk.PhotoImage(image=current_image)  # convert image for tkinter
         labelVideo.imgtk = imgtk  # anchor imgtk so it does not be deleted by garbage-collector
@@ -159,7 +159,7 @@ ButtonArribaZ=tk.Button(ventanaCalibrar,text="Izquierda Z", fg="blue", state = '
 
 
 
-video_loop()
-#show_frame()  #Display 2
+#video_loop()
+
 ventanaCalibrar.mainloop()  #Starts GUI
 
