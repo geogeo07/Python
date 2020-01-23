@@ -1,4 +1,0 @@
-Diamentro:
-50 Espesor:
-50 Largo:
-50

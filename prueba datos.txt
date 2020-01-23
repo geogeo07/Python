@@ -1,6 +1,0 @@
-Diametro:
-5
-Espesor:
-10
-Largo:
-50
